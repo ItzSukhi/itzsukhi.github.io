@@ -6,11 +6,12 @@
   --text:#0f172a;
   --glass: rgba(15,23,42,0.04);
   --radius:14px;
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-family:'Inter', system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+/* RESET */
+*{box-sizing:border-box;}
+html,body{height:100%;}
 body{
   margin:0;
   background:var(--bg);
@@ -21,40 +22,41 @@ body{
   font-size:16px;
 }
 
-/* container */
-.container{max-width:1100px;margin:28px auto;padding:0 20px}
+/* CONTAINER */
+.container{max-width:1100px;margin:28px auto;padding:0 20px;}
 
-/* header */
-.site-header{background:transparent;padding:18px 0}
-.header-grid{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand h1{margin:0;font-size:22px;font-weight:700}
-.tagline{margin:6px 0 0;font-size:13px;color:var(--muted)}
-.top-actions{display:flex;gap:10px}
+/* HEADER */
+.site-header{background:transparent;padding:18px 0;}
+.header-grid{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand h1{margin:0;font-size:22px;font-weight:700;}
+.tagline{margin-top:6px;font-size:13px;color:var(--muted);}
 
-/* ========= BUTTON SYSTEM (Unified) ========= */
+.top-actions{display:flex;gap:10px;}
+
+/* ================= BUTTONS (Unified) ================= */
+
 .btn{
-  background: var(--accent);
-  color: #fff;
-  padding: 9px 18px;
-  border-radius: 10px;
-  text-decoration:none;
+  background:var(--accent);
+  color:#fff;
+  padding:9px 18px;
+  border-radius:10px;
   font-weight:600;
+  text-decoration:none;
   display:inline-block;
   transition:.28s ease;
   border:none;
-  cursor:pointer;
 }
 
-.btn:hover,
-.btn:focus{
+.btn:hover,.btn:focus{
   background:#0d57cf;
   transform:translateY(-2px);
   box-shadow:0 6px 14px rgba(31,111,235,.28);
 }
 
-.btn:active{transform:scale(.96)}
+.btn:active{transform:scale(.96);}
 
-/* Outline secondary button (Resume) */
 .btn-outline{
   background:transparent;
   color:var(--accent);
@@ -66,23 +68,18 @@ body{
   color:white;
 }
 
-/* CONTACT SOCIAL BUTTONS SAME STYLE */
-.social-buttons{
-  display:flex;
-  gap:12px;
-  margin-top:12px;
-}
+.btn.small{padding:6px 12px;font-size:14px;border-radius:8px;}
 
-.social-buttons .btn{
-  padding:8px 16px;
-}
+.social-buttons{display:flex;gap:12px;margin-top:12px;}
+.social-buttons .btn{padding:8px 16px;}
 
-/* ========= CARDS ========= */
+/* ================= CARDS (Universal Container) ================= */
+
 .card{
   background:var(--card);
   border-radius:var(--radius);
   padding:18px;
-  box-shadow:0 2px 10px rgba(15,23,42,0.05);
+  box-shadow:0 2px 10px rgba(15,23,42,.05);
   margin-bottom:18px;
 }
 
@@ -93,55 +90,115 @@ body{
   align-items:start;
 }
 
-.intro h2{margin:0 0 8px}
-.muted{color:var(--muted);font-size:13px}
+.intro h2{margin:0 0 8px;font-weight:700;}
+.muted{color:var(--muted);font-size:13px;}
 
-/* Skills */
-.skills h4{margin-top:0}
-.skills ul{padding-left:18px;margin:6px 0 0;color:var(--muted)}
+/* ================= SKILLS ================= */
 
-/* ========= PROJECT GRID ========= */
-.section-title{margin-bottom:12px;font-size:18px;font-weight:700}
-.grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skills h4{margin-top:0;}
+.skills ul{padding-left:18px;margin-top:6px;color:var(--muted);}
 
+/* ================= PROJECTS (NO IMAGE VARIANT) ================= */
+
+.section-title{margin-bottom:14px;font-size:19px;font-weight:700;}
+
+.grid-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:18px;
+}
+
+/* Card look updated */
 .project-card{
-  display:flex;
-  flex-direction:column;
-  border-radius:12px;
+  background:#fff;
+  border-radius:14px;
   overflow:hidden;
-  background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.98));
-  transition:transform .18s ease, box-shadow .18s ease;
+  transition:.25s ease;
+  position:relative;
+  padding-top:12px;
+}
+
+/* Accent highlight bar */
+.project-card::before{
+  content:"";
+  width:100%;
+  height:5px;
+  background:var(--accent);
+  position:absolute;
+  top:0;left:0;
+  opacity:.9;
 }
 
 .project-card:hover{
   transform:translateY(-6px);
-  box-shadow:0 14px 30px rgba(15,23,42,0.08);
+  box-shadow:0 16px 32px rgba(15,23,42,.12);
 }
 
-.project-thumb{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  background:#efefef;
+.project-body{
+  padding:18px;
 }
 
-.project-body{padding:14px}
-.project-body h4{margin:0 0 8px;font-size:16px;font-weight:600}
-.project-body .desc{margin-bottom:10px;color:var(--muted);font-size:14px}
+.project-body h4{
+  margin:0 0 6px;
+  font-size:17px;
+  font-weight:700;
+}
 
+.project-body .desc{
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.45;
+}
+
+/* Tag Pills */
 .meta{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:8px;
+  margin-bottom:12px;
 }
 
-.card-actions .link{
-  color:var(--accent);
-  text-decoration:none;
+.meta span{
+  background:#eef4ff;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:6px;
   font-weight:600;
+  color:#1f46c3;
 }
 
-/* =======*
+/* ================= EXPERIENCE ================= */
+
+.timeline{list-style:none;margin-top:6px;padding:0;color:var(--muted);}
+.timeline li{padding:8px 0;}
+
+/* ================= CONTACT ================= */
+
+.contact .email{
+  color:var(--text);
+  font-weight:700;
+  text-decoration:none;
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer{
+  padding:18px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:980px){
+  .intro-grid{grid-template-columns:1fr;}
+}
+
+@media(max-width:640px){
+  .header-grid{flex-direction:column;align-items:flex-start;gap:12px;}
+  .grid-cards{grid-template-columns:1fr;}
+  .brand h1{font-size:20px;}
+  body{font-size:15px;}
+}
